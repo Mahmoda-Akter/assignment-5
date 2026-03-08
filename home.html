@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- tailwind and daisyui link here -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+
+</head>
+
+<body class="bg-[#F8FAFC]">
+    <header>
+        <div class="navbar bg-base-100 shadow-sm">
+            <div class="flex-1">
+                <div class="flex gap-3">
+                    <img class="w-10 h-10" src="./assets/github-logo.png">
+                    <h2 class="flex items-center font-bold text-2xl ">GitHub Issues Tracker</h2>
+                </div>
+            </div>
+            <div class="flex gap-2">
+
+                <input type="text" placeholder="Search issues..." class="input input-bordered w-24 md:w-auto" />
+                <button class="btn btn-primary">Primary</button>
+            </div>
+        </div>
+    </header>
+    <main class="w-11/12 mx-auto">
+        <div class="navbar bg-base-300 shadow-sm  mt-10 gap-4">
+            <button id="all-btn" class="btn btn-outline btn-primary bg-blue-600 text-black">All</button>
+            <button id="open-btn" class="btn btn-outline btn-primary text-black ">Open</button>
+            <button id="closed-btn" class="btn btn-outline btn-primary text-black">Closed</button>
+        </div>
+
+        <!-- issue navber -->
+        <div class="navbar bg-base-100 shadow-sm mt-10">
+            <div class="flex-1">
+                <div class="flex gap-2.5">
+                    <img class="w-10 h-10 mt-1.5" src="./assets/Aperture.png">
+                    <div>
+                        <h3 id="count-issue" class="font-bold">50 Issues</h3>
+                        <p class="font-semibold">Track and manage your project issues</p>
+                    </div>
+                </div>
+            </div>
+            <div class="flex-none">
+                <ul class="menu menu-horizontal px-1 gap-4">
+                    <p class="font-bold">Open</p>
+                    <p class="font-bold">Closed</p>
+                </ul>
+            </div>
+        </div>
+
+        <!-- issue container here -->
+        <section class="">
+            <div id="issue-container" class=" grid sm:grid-cols-1 md:grid-cols-3 gap-4">
+                <!-- <div class="bg-slate-100 p-6">
+                    <div class="flex justify-between items-center">
+                        <img src="./assets/Open-Status.png">
+                        <p class="bg-amber-200 w-20 text-center p-1">High</p>
+                    </div>
+                    <h2 class="font-bold mt-2">Fix navigation menu on mobile devices</h2>
+                    <p class="mt-2">The navigation menu doesn't collapse properly on mobile devices...</p>
+                    <div class="flex mt-4 gap-4">
+                        <button class="btn btn-soft btn-success rounded-full">Bug</button>
+                        <button class="btn btn-soft btn-success rounded-full">help wanted</button>
+                    </div>
+                    <div class="mt-5">
+                        <p class="text-[#64748B]">#1by john_doe</p>
+                        <p class="text-[#64748B]">1/15/2024</p>
+                    </div>
+                </div> -->
+
+            </div>
+            <!-- model here -->
+            <div>
+                <!-- Open the modal using ID.showModal() method -->
+                <!-- <button class="btn" onclick="my_modal_5.showModal()">open modal</button> -->
+                <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
+                    <div id="modelcontainer" class="modal-box">
+                        <h2 class="tittle font-bold text-2xl">Fix broken image uploads</h2>
+                        <div class="flex gap-2">
+                            <p>Opened</p>
+                            <p>. Opened by Fahim Ahmed</p>
+                            <p>. 22/02/2026</p>
+                        </div>
+                        <div class="flex gap-2 mt-4">
+                            <p class="bg-amber-200 p-3">Bug</p>
+                            <p class="bg-amber-200 p-3">help wanted</p>
+                        </div>
+                        <p class="mt-2">The navigation menu doesn't collapse properly on mobile devices. Need to fix the responsive
+                            behavior.</p>
+                        <div class="flex justify-between mt-3">
+                            <div>
+                                <p>Assignee:</p>
+                                <p>Fahim Ahmed</p>
+                            </div>
+                            <div>
+                                <p>Priority:</p>
+                                <button>High</button>
+                            </div>
+                        </div>
+                        <div class="modal-action">
+                            <form method="dialog">
+                                <!-- if there is a button in form, it will close the modal -->
+                                <button class="btn">Close</button>
+                            </form>
+                        </div>
+                    </div>
+                </dialog>
+            </div>
+        </section>
+    </main>
+
+    <script src="home.js"></script>
+</body>
+
+</html>
