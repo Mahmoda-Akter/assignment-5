@@ -23,8 +23,8 @@
             </div>
             <div class="flex gap-2">
 
-                <input type="text" placeholder="Search issues..." class="input input-bordered w-24 md:w-auto" />
-                <button class="btn btn-primary">Primary</button>
+                <input id="search-inpute" type="text" placeholder="Search issues..." class="input input-bordered w-24 md:w-auto" />
+                <button id="search-btn" class="btn btn-primary">Primary</button>
             </div>
         </div>
     </header>
@@ -56,7 +56,7 @@
 
         <!-- issue container here -->
         <section class="">
-            <div id="issue-container" class=" grid sm:grid-cols-1 md:grid-cols-3 gap-4">
+            <div id="issue-container" class=" grid sm:grid-cols-1 md:grid-cols-3 gap-4 ">
                 <!-- <div class="bg-slate-100 p-6">
                     <div class="flex justify-between items-center">
                         <img src="./assets/Open-Status.png">
@@ -74,6 +74,9 @@
                     </div>
                 </div> -->
 
+            </div>
+            <div id="loding-container" class="flex justify-center items-center mt-20 hidden">
+                <span class="loading loading-spinner loading-xl"></span>
             </div>
             <!-- model here -->
             <div>

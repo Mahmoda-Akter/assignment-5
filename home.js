@@ -30,27 +30,64 @@ allbtn.addEventListener('click', () => {
 openbtn.addEventListener('click', () => {
     removeactive()
     addactive(openbtn)
+    lodingspinner(true);
     const openissue = allissue.filter(item => item.status === "open");
     let opencount = (openissue.length)
     countissue.innerText = `${opencount} Issues`;
     displayallcard(openissue);
+    lodingspinner(false)
 })
 closebtn.addEventListener('click', () => {
     removeactive()
     addactive(closebtn)
+    lodingspinner(true)
     const closeissue = allissue.filter(item => item.status === "closed")
     let closecount = closeissue.length;
     countissue.innerText = `${closecount} Issues`
     displayallcard(closeissue)
+    lodingspinner(false)
+})
+
+// loding spinner is here
+const lodingspinner=(state)=>{
+    if(state == true){
+        document.getElementById("loding-container").classList.remove('hidden');
+        document.getElementById('issue-container').classList.add('hidden')
+    }else{
+        document.getElementById('issue-container').classList.remove("hidden");
+        document.getElementById("loding-container").classList.add("hidden")
+    }
+};
+
+const searchbtn=document.getElementById('search-btn')
+searchbtn.addEventListener('click',() =>{
+    const searchinput=document.getElementById('search-inpute')
+    let searchvalue=searchinput.value.toLowerCase();
+    console.log(searchvalue)
+
+    fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${searchvalue}`)
+    .then(res => res.json())
+    .then((data)=>{
+        const allword=data.data;
+        console.log(allword);
+        const filterword=allword.filter((word)=> word.title.toLowerCase().includes(searchvalue))
+        console.log(filterword)
+        displayallcard(filterword);
+    })
+    
+    
+    
 })
 
 
 const loadallcar = async () => {
+    lodingspinner(true);
     let res = await fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues")
     let data = await res.json();
     allissue = (data.data);
     console.log(allissue.length)
     displayallcard(allissue)
+    
 }
 const modelid=document.getElementById("my_modal_5")
 console.log(modelid)
@@ -134,6 +171,7 @@ const displayallcard = (cards) => {
         `
         issuecontainer.appendChild(carddiv);
     }
+    lodingspinner(false);
 
 }
 
