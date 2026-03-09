@@ -1,3 +1,4 @@
+// for bug button logic
 const createElement = (arr) => {
     const htmlelement = arr.map((el) => `<span class="btn rounded-full bg-amber-100">${el}</span>`)
     return (htmlelement.join(" "));
@@ -8,9 +9,8 @@ let closebtn = document.getElementById('closed-btn');
 let countissue = document.getElementById('count-issue')
 let allissue = [];
 
-// console.log(allbtn)
-// console.log(openbtn)
-// console.log(closebtn)
+
+// remove and active button logic
 const removeactive = () => {
     allbtn.classList.remove("bg-blue-600")
     openbtn.classList.remove("bg-blue-600")
@@ -59,6 +59,7 @@ const lodingspinner=(state)=>{
     }
 };
 
+// search button logic here
 const searchbtn=document.getElementById('search-btn')
 searchbtn.addEventListener('click',() =>{
     const searchinput=document.getElementById('search-inpute')
@@ -79,7 +80,7 @@ searchbtn.addEventListener('click',() =>{
     
 })
 
-
+// load all card form api
 const loadallcar = async () => {
     lodingspinner(true);
     let res = await fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues")
@@ -89,6 +90,7 @@ const loadallcar = async () => {
     displayallcard(allissue)
     
 }
+// load all model info from api
 const modelid=document.getElementById("my_modal_5")
 console.log(modelid)
 const openmodel=async (id)=>{
@@ -99,6 +101,8 @@ const openmodel=async (id)=>{
     displayshowmodel(dtailes.data);
     
 }
+// display all model logic
+
 const displayshowmodel=(modelinfo)=>{
     const modelcontainer=document.getElementById('modelcontainer')
     modelcontainer.innerHTML=`
@@ -132,6 +136,7 @@ const displayshowmodel=(modelinfo)=>{
     modelid.showModal();
 }
 
+// display all card logic
 
 const displayallcard = (cards) => {
     // catch issuecontainer
